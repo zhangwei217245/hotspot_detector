@@ -16,6 +16,7 @@ def process_console_args():
     parser.add_argument('-o', '--output', metavar='', default=None, help='The path of the output file you want to generate')
     parser.add_argument('-e', '--eps', metavar='', default=2048, help='radius for dbscan')
     parser.add_argument('-m', '--minpts', metavar='', default=100, help='minimum number of points in the range')
+    parser.add_argument('-t', '--thresholdmem', metavar='', default=100, help='memory threshold')
     args = parser.parse_args()
     return args
 
@@ -30,7 +31,7 @@ def main():
         try:
             if len(line) > 0:
                 addr = int(line.split(':')[3][10:18],16)
-                if addr < 0x3B9ACA00:
+                if addr < args.thresholdmem:
                     X = np.append(X, [[v, addr]], axis = 0)
                 v = v+1
         except Exception as e:
