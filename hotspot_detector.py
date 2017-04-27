@@ -27,8 +27,9 @@ def main():
         try:
             if len(line) > 0:
                 addr = int(line.split(':')[3][2:18],16)
-                X = np.append(X, [[addr, v]], axis = 0)
-                v = v+1
+                if addr < 100000000000:
+                    X = np.append(X, [[addr, v]], axis = 0)
+                    v = v+1
         except Exception as e:
             print(e)
 
