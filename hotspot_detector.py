@@ -74,7 +74,7 @@ def main():
         min = 0xffffffff
         max = 0x00000000
         for addr_ in cluster_table[cluster_idx]:
-            if min > addr_:
+            if min > addr_ and addr_ >= 0x00000000:
                 min = addr_
             if max < addr_:
                 max = addr_
