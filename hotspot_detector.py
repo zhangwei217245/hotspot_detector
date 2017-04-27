@@ -63,7 +63,7 @@ def main():
     #       % metrics.adjusted_mutual_info_score(labels_true, labels))
 
 
-    cluster_table = np.zeros((n_clusters_, len(labels)), dtype = int)
+    cluster_table = np.full((n_clusters_, len(labels)), -1, dtype = int)
     for inst_idx in range(len(db.components_)):
         addr = db.components_[inst_idx][1]
         label_idx = db.core_sample_indices_[inst_idx]
