@@ -65,8 +65,8 @@ def main():
                  markeredgecolor='k', markersize=6)
 
     plt.title('Estimated number of clusters: %d' % n_clusters_)
-    fig = plt.figure()
-    fig.savefig("plot.png")
+    plt.savefig("foo.png")
+
 
     return
 
