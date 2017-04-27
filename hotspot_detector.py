@@ -29,7 +29,7 @@ def main():
                 addr = int(line.split(':')[3][10:18],16)
                 if addr < 0x3B9ACA00:
                     X = np.append(X, [[ v, addr]], axis = 0)
-                    v = v+1
+                v = v+1
         except Exception as e:
             print(e)
 
