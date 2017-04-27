@@ -73,12 +73,15 @@ def main():
     for cluster_idx in range(n_clusters_):
         min = 0xffffffff
         max = 0x00000000
+        num_inst = 0
         for addr_ in cluster_table[cluster_idx]:
-            if min > addr_ and addr_ >= 0x00000000:
-                min = addr_
-            if max < addr_:
-                max = addr_
-        print("For cluster ", cluster_idx, ", the min = ", hex(min), ", max = ", hex(max))
+            if addr_ >= 0x00000000:
+                num_inst = num_inst + 1
+                if min > addr_:
+                    min = addr_
+                if max < addr_:
+                    max = addr_
+        print("For cluster ", cluster_idx, ", the range = (", hex(min), " ~ ", hex(max), "), number of instances = ", num_inst)
 
 
 
