@@ -19,16 +19,16 @@ def main():
     args = process_console_args()
     filepath = args.file
     file_obj = open(filepath, 'rt')
-    array = np.zeros((2,2), dtype=int)
+    arr = np.empty((0,2),dtype=int)
     for line in file_obj:
         try:
             if len(line) > 0:
                 addr = int(line.split(':')[3][2:18],16)
-                array.append([addr, 0], axis = 0)
+                arr = np.append(arr, [addr, 0], axis = 0)
         except Exception as e:
             print(e)
 
-    print(array)
+    print(arr)
     return
 
 
