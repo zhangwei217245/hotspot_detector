@@ -70,7 +70,17 @@ def main():
         inst_label = labels[label_idx]
         cluster_table[inst_label, label_idx] = addr
 
-    print(cluster_table)
+    for cluster_idx in range(n_clusters_):
+        min = 0xffffffff
+        max = 0x00000000
+        for addr_ in cluster_table[cluster_idx]:
+            if min > addr_:
+                min = addr_
+            if max < addr_:
+                max = addr_
+        print("For cluster ", cluster_idx, ", the min = ", hex(min), ", max = ", hex(max))
+
+
 
 
     print("Silhouette Coefficient: %0.3f"
