@@ -138,3 +138,5 @@ fabric.properties
 .idea/misc.xml
 .idea/modules.xml
 .idea/thriftCompiler.xml
+.idea/vcs.xml
+.idea/
