@@ -13,6 +13,9 @@ from sklearn import metrics
 def process_console_args():
     parser = argparse.ArgumentParser('hotspot_detector.py')
     parser.add_argument('-f', '--file', metavar='', default=None, help='The path of the file you want to process')
+    parser.add_argument('-o', '--output', metavar='', default=None, help='The path of the output file you want to generate')
+    parser.add_argument('-e', '--eps', metavar='', default=2048, help='radius for dbscan')
+    parser.add_argument('-m', '--minpts', metavar='', default=100, help='minimum number of points in the range')
     args = parser.parse_args()
     return args
 
@@ -28,12 +31,12 @@ def main():
             if len(line) > 0:
                 addr = int(line.split(':')[3][10:18],16)
                 if addr < 0x3B9ACA00:
-                    X = np.append(X, [[ v, addr]], axis = 0)
+                    X = np.append(X, [[v, addr]], axis = 0)
                 v = v+1
         except Exception as e:
             print(e)
 
-    db = DBSCAN(eps=4096, min_samples=100).fit(X)
+    db = DBSCAN(eps=args.eps, min_samples=args.minpts).fit(X)
     core_samples_mask = np.zeros_like(db.labels_, dtype=bool)
     core_samples_mask[db.core_sample_indices_] = True
     labels = db.labels_
@@ -70,7 +73,7 @@ def main():
                  markeredgecolor='k', markersize=6)
 
     plt.title('Estimated number of clusters: %d' % n_clusters_)
-    plt.savefig("foo.png")
+    plt.savefig(args.output)
 
 
     return
