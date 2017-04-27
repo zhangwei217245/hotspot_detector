@@ -84,6 +84,13 @@ def main():
         print("For cluster ", cluster_idx, ", the range = (", hex(min), " ~ ", hex(max), "), number of instances = ", num_inst)
 
 
+    num_outlier = 0
+    for label_ in labels:
+        if label_ == -1:
+            num_outlier = num_outlier + 1
+
+    print("The total number of outliers = ", num_outlier)
+
 
 
     print("Silhouette Coefficient: %0.3f"
