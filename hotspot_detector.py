@@ -22,11 +22,13 @@ def main():
     filepath = args.file
     file_obj = open(filepath, 'rt')
     X = np.empty((0,2),dtype=int)
+    v = 1
     for line in file_obj:
         try:
             if len(line) > 0:
                 addr = int(line.split(':')[3][2:18],16)
-                X = np.append(X, [[addr, addr]], axis = 0)
+                X = np.append(X, [[addr, v]], axis = 0)
+                v = v+1
         except Exception as e:
             print(e)
 
