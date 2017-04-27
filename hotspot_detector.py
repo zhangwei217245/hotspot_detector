@@ -21,10 +21,10 @@ def main():
 		try:
 			if len(line) > 0:
 				print(line)
-			except Exception as e:
-				print(e)
+		except Exception as e:
+			print(e)
 	return
-    
+
 
 if __name__ == "__main__":
     main()
