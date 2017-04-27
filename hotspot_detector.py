@@ -30,7 +30,7 @@ def main():
         except Exception as e:
             print(e)
 
-    db = DBSCAN(eps=0.3, min_samples=10).fit(X)
+    db = DBSCAN(eps=4096, min_samples=100).fit(X)
     core_samples_mask = np.zeros_like(db.labels_, dtype=bool)
     core_samples_mask[db.core_sample_indices_] = True
     labels = db.labels_
