@@ -22,7 +22,7 @@ def main():
     for line in file_obj:
         try:
             if len(line) > 0:
-                print(line.split(':')[3])
+                print(line.split(':')[3][2:18])
         except Exception as e:
             print(e)
     return
