@@ -45,6 +45,9 @@ def main():
     print("\nLABELS=\n")
     print(labels)
 
+    for ll in labels:
+        print(ll)
+
     print("\ncomponents=\n")
     print(db.components_)
 
