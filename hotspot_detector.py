@@ -89,7 +89,7 @@ def main():
         if label_ == -1:
             num_outlier = num_outlier + 1
 
-    print("The total number of outliers = ", num_outlier)
+    print("The total number of outliers = ", num_outlier, ", the total number of core samples = ", len(labels))
 
 
 
