@@ -24,7 +24,7 @@ def main():
         try:
             if len(line) > 0:
                 addr = int(line.split(':')[3][2:18],16)
-                arr = np.append(arr, [addr, 0], axis = 0)
+                arr = np.append(arr, [[addr, 0]], axis = 0)
         except Exception as e:
             print(e)
 
