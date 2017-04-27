@@ -26,7 +26,7 @@ def main():
         try:
             if len(line) > 0:
                 addr = int(line.split(':')[3][2:18],16)
-                X = np.append(X, [[addr, 0]], axis = 0)
+                X = np.append(X, [[addr, addr]], axis = 0)
         except Exception as e:
             print(e)
 
