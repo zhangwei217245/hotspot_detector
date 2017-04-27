@@ -81,7 +81,7 @@ def main():
                     min = addr_
                 if max < addr_:
                     max = addr_
-        print("For cluster ", cluster_idx, ", the range = (", hex(min), " ~ ", hex(max), "), number of instances = ", num_inst)
+        print("For cluster ", cluster_idx, ", the range = (", "{0:#0{18}X".format(min), " ~ ", "{0:#0{18}X".format(max), "), number of instances = ", num_inst)
 
 
     num_outlier = 0
