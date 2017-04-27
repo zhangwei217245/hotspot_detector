@@ -18,14 +18,14 @@ def process_console_args():
 def main():
     args = process_console_args()
     filepath = args.file
-    file_obj = open(file_path, 'rt')
+    file_obj = open(filepath, 'rt')
     for line in file_obj:
-		try:
-			if len(line) > 0:
-				print(line)
-		except Exception as e:
-			print(e)
-	return
+        try:
+            if len(line) > 0:
+                print(line)
+        except Exception as e:
+            print(e)
+    return
 
 
 if __name__ == "__main__":
