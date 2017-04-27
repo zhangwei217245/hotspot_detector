@@ -45,9 +45,6 @@ def main():
     print("\nLABELS=\n")
     print(labels)
 
-    for ll in labels:
-        print(ll)
-
     print("\ncomponents=\n")
     print(db.components_)
 
@@ -64,6 +61,18 @@ def main():
     #       % metrics.adjusted_rand_score(labels_true, labels))
     # print("Adjusted Mutual Information: %0.3f"
     #       % metrics.adjusted_mutual_info_score(labels_true, labels))
+
+
+    cluster_table = np.zeros((n_clusters_, len(labels)), dtype = int)
+    for inst_idx in range(len(db.components_)):
+        addr = db.components_[inst_idx][1]
+        label_idx = db.core_sample_indices_[inst_idx]
+        inst_label = labels[label_idx]
+        cluster_table[inst_label, label_idx] = addr
+
+    print(cluster_table)
+
+
     print("Silhouette Coefficient: %0.3f"
           % metrics.silhouette_score(X, labels))
 
