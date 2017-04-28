@@ -64,6 +64,7 @@ def main():
         inst_label = labels[label_idx]
         cluster_table[inst_label, label_idx] = addr
 
+    clst_name=[]
     for cluster_idx in range(n_clusters_):
         min = 0xffffffff
         max = 0x00000000
@@ -75,6 +76,7 @@ def main():
                     min = addr_
                 if max < addr_:
                     max = addr_
+        clst_name.append("C{:02}({}~{})".format(cluster_idx,"{0:#0{1}X}".format(min,18),"{0:#0{1}X}".format(max,18)))
         print("For cluster ", "{:02}".format(cluster_idx), ", the range = (", "{0:#0{1}X}".format(min,18), " ~ ", "{0:#0{1}X}".format(max,18), "), number of instances = ", num_inst)
 
 
@@ -93,6 +95,7 @@ def main():
     # Black removed and is used for noise instead.
     unique_labels = set(labels)
     colors = plt.cm.Spectral(np.linspace(0, 1, len(unique_labels)))
+    clst = []
     for k, col in zip(unique_labels, colors):
         if k == -1:
             # Black used for noise.
@@ -102,13 +105,12 @@ def main():
 
         mksize = 10
         xy = X[class_member_mask & core_samples_mask]
-        plt.plot(xy[:, 0], xy[:, 1], 'o', markerfacecolor=col,
-                 markeredgecolor='lightgrey', mew=0.1, markersize=mksize)
+        clst.append(plt.scatter(xy[:, 0], xy[:, 1], c=col, marker='o'))
 
         xy = X[class_member_mask & ~core_samples_mask]
-        plt.plot(xy[:, 0], xy[:, 1], 'x', markerfacecolor=col,
-                 markeredgecolor='k', mew=0.0, markersize=mksize)
+        plt.scatter(xy[:, 0], xy[:, 1], c='k', marker='x')
 
+    plt.legend(clst, clst_name)
     plt.title('Estimated number of clusters: %d' % n_clusters_)
     plt.savefig(args.output)
 
