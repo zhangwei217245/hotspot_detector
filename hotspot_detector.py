@@ -89,7 +89,7 @@ def main():
         if label_ == -1:
             num_outlier = num_outlier + 1
 
-    print("The total number of outliers = ", "{:02}".format(num_outlier,2), ", the number of all core samples = ", len(db.core_sample_indices_), ", the number of all instances =", len(labels))
+    print("The total number of outliers = ", "{:02}".format(num_outlier), ", the number of all core samples = ", len(db.core_sample_indices_), ", the number of all instances =", len(labels))
 
 
 
