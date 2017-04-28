@@ -113,7 +113,8 @@ def main():
         plt.scatter(xy[:, 0], xy[:, 1], c='k', marker='x')
 
     plt.legend(clst, clst_name, loc=9)
-    plt.title('Estimated number of clusters: %d' % n_clusters_)
+    # plt.title('Estimated number of clusters: %d' % n_clusters_)
+    plt.title(plot_title)
     plt.savefig(args.output)
 
 
