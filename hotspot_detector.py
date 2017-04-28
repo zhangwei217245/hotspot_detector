@@ -48,14 +48,6 @@ def main():
     # Number of clusters in labels, ignoring noise if present.
     n_clusters_ = len(set(labels)) - (1 if -1 in labels else 0)
     print('Estimated number of clusters: %d' % n_clusters_)
-    # print("Homogeneity: %0.3f" % metrics.homogeneity_score(labels_true, labels))
-    # print("Completeness: %0.3f" % metrics.completeness_score(labels_true, labels))
-    # print("V-measure: %0.3f" % metrics.v_measure_score(labels_true, labels))
-    # print("Adjusted Rand Index: %0.3f"
-    #       % metrics.adjusted_rand_score(labels_true, labels))
-    # print("Adjusted Mutual Information: %0.3f"
-    #       % metrics.adjusted_mutual_info_score(labels_true, labels))
-
 
     cluster_table = np.full((n_clusters_, len(labels)), -1, dtype = int)
     for inst_idx in range(len(db.components_)):
@@ -89,8 +81,6 @@ def main():
         .format(args.output, n_clusters_, num_outlier, len(labels), len(db.core_sample_indices_), len(labels))
     print("The total number of outliers = ", num_outlier, ", the number of all core samples = ", len(db.core_sample_indices_), ", the number of all instances =", len(labels))
 
-
-
     # print("Silhouette Coefficient: %0.3f"
     #       % metrics.silhouette_score(X, labels))
 
@@ -114,8 +104,8 @@ def main():
     plt.legend(clst, clst_name, loc='upper center', bbox_to_anchor=(0.5,-0.1))
     # plt.title('Estimated number of clusters: %d' % n_clusters_)
     plt.title(plot_title)
+    plt.tight_layout()
     plt.savefig(args.output)
-
 
     return
 
