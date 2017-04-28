@@ -76,7 +76,7 @@ def main():
                     min = addr_
                 if max < addr_:
                     max = addr_
-        clst_name.append("C{:02}({}~{})".format(cluster_idx,"{0:#0{1}X}".format(min,18),"{0:#0{1}X}".format(max,18)))
+        clst_name.append("C{:02}({}~{}, inst={})".format(cluster_idx,"{0:#0{1}X}".format(min,18),"{0:#0{1}X}".format(max,18)), num_inst)
         print("For cluster ", "{:02}".format(cluster_idx), ", the range = (", "{0:#0{1}X}".format(min,18), " ~ ", "{0:#0{1}X}".format(max,18), "), number of instances = ", num_inst)
 
 
@@ -85,6 +85,8 @@ def main():
         if label_ == -1:
             num_outlier = num_outlier + 1
 
+    plot_title = "{}, num_clusters={}, \nnum_outliers={}/{}, num_core_samples={}/{}"\
+        .format(args.output, n_clusters_, num_outlier, len(labels), db.core_sample_indices_, len(labels))
     print("The total number of outliers = ", num_outlier, ", the number of all core samples = ", len(db.core_sample_indices_), ", the number of all instances =", len(labels))
 
 
@@ -110,7 +112,7 @@ def main():
         xy = X[class_member_mask & ~core_samples_mask]
         plt.scatter(xy[:, 0], xy[:, 1], c='k', marker='x')
 
-    plt.legend(clst, clst_name)
+    plt.legend(clst, clst_name, loc=9)
     plt.title('Estimated number of clusters: %d' % n_clusters_)
     plt.savefig(args.output)
 
