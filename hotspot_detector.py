@@ -102,7 +102,7 @@ def main():
 
         xy = X[class_member_mask & core_samples_mask]
         plt.plot(xy[:, 0], xy[:, 1], 'o', markerfacecolor=col,
-                 markeredgecolor=col, mew=0.5, markersize=8)
+                 markeredgecolor='lightgrey', mew=0.5, markersize=8)
 
         xy = X[class_member_mask & ~core_samples_mask]
         plt.plot(xy[:, 0], xy[:, 1], 'o', markerfacecolor=col,
