@@ -87,8 +87,8 @@ def main():
 
 
 
-    print("Silhouette Coefficient: %0.3f"
-          % metrics.silhouette_score(X, labels))
+    # print("Silhouette Coefficient: %0.3f"
+    #       % metrics.silhouette_score(X, labels))
 
     # Black removed and is used for noise instead.
     unique_labels = set(labels)
