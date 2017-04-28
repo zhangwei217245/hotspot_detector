@@ -16,8 +16,8 @@ def process_console_args():
     parser.add_argument('-o', '--output', metavar='', default=None, help='The path of the output file you want to generate')
     parser.add_argument('-e', '--eps', metavar='', default=2048, type=int, help='radius for dbscan')
     parser.add_argument('-m', '--minpts', metavar='', default=100, type=int, help='minimum number of points in the range')
-    parser.add_argument('-h', '--headmemaddr', metavar='', default=0x00000000, type=int, help='memory head')
-    parser.add_argument('-t', '--tailmemaddr', metavar='', default=0xffffffff, type=int, help='memory tail')
+    parser.add_argument('-H', '--headmemaddr', metavar='', default=0x00000000, type=int, help='memory head')
+    parser.add_argument('-T', '--tailmemaddr', metavar='', default=0xffffffff, type=int, help='memory tail')
     args = parser.parse_args()
     return args
 

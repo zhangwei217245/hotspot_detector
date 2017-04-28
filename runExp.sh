@@ -10,7 +10,7 @@ do
         do
             tail=`echo "$head + 1000000"|bc`
             echo "========= $FILEBASE${i}_${minpts}_${head}_${tail} =========="
-            ./hotspot_detector.py -h $head -t $tail -m $minpts -f $FILEBASE$i -o $FILEBASE${i}_${minpts}_${head}_${tail}.png
+            ./hotspot_detector.py -H $head -T $tail -m $minpts -f $FILEBASE$i -o $FILEBASE${i}_${minpts}_${head}_${tail}.png
         done
     done
 done
