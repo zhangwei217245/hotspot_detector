@@ -86,7 +86,7 @@ def main():
             num_outlier = num_outlier + 1
 
     plot_title = "{}, num_clusters={}, \nnum_outliers={}/{}, num_core_samples={}/{}"\
-        .format(args.output, n_clusters_, num_outlier, len(labels), db.core_sample_indices_, len(labels))
+        .format(args.output, n_clusters_, num_outlier, len(labels), len(db.core_sample_indices_), len(labels))
     print("The total number of outliers = ", num_outlier, ", the number of all core samples = ", len(db.core_sample_indices_), ", the number of all instances =", len(labels))
 
 
