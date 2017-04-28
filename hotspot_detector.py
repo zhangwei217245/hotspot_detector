@@ -98,19 +98,18 @@ def main():
     unique_labels = set(labels)
     colors = plt.cm.Spectral(np.linspace(0, 1, len(unique_labels)))
     clst = []
+    markr = "o"
     for k, col in zip(unique_labels, colors):
+        class_member_mask = (labels == k)
         if k == -1:
             # Black used for noise.
             col = 'k'
+            markr = 'x'
+            xy = X[class_member_mask & ~core_samples_mask]
+            plt.scatter(xy[:, 0], xy[:, 1], c=col, marker=markr)
 
-        class_member_mask = (labels == k)
-
-        mksize = 10
         xy = X[class_member_mask & core_samples_mask]
-        clst.append(plt.scatter(xy[:, 0], xy[:, 1], c=col, marker='o'))
-
-        xy = X[class_member_mask & ~core_samples_mask]
-        plt.scatter(xy[:, 0], xy[:, 1], c='k', marker='x')
+        clst.append(plt.scatter(xy[:, 0], xy[:, 1], c=col, marker=markr))
 
     plt.legend(clst, clst_name, loc=9)
     # plt.title('Estimated number of clusters: %d' % n_clusters_)
