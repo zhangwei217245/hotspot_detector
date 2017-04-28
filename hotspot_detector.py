@@ -81,7 +81,7 @@ def main():
                     min = addr_
                 if max < addr_:
                     max = addr_
-        print("For cluster ", cluster_idx, ", the range = (", "{0:#0{1}X}".format(min,18), " ~ ", "{0:#0{1}X}".format(max,18), "), number of instances = ", num_inst)
+        print("For cluster ", "{:02}".format(cluster_idx), ", the range = (", "{0:#0{1}X}".format(min,18), " ~ ", "{0:#0{1}X}".format(max,18), "), number of instances = ", num_inst)
 
 
     num_outlier = 0
@@ -89,7 +89,7 @@ def main():
         if label_ == -1:
             num_outlier = num_outlier + 1
 
-    print("The total number of outliers = ", "{:02}".format(num_outlier), ", the number of all core samples = ", len(db.core_sample_indices_), ", the number of all instances =", len(labels))
+    print("The total number of outliers = ", num_outlier, ", the number of all core samples = ", len(db.core_sample_indices_), ", the number of all instances =", len(labels))
 
 
 
