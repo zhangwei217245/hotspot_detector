@@ -42,15 +42,6 @@ def main():
     core_samples_mask[db.core_sample_indices_] = True
     labels = db.labels_
 
-    print("\nLABELS=\n")
-    print(labels)
-
-    print("\ncomponents=\n")
-    print(db.components_)
-
-    print("\ncore_sample_indices=\n")
-    print(db.core_sample_indices_)
-
     # Number of clusters in labels, ignoring noise if present.
     n_clusters_ = len(set(labels)) - (1 if -1 in labels else 0)
     print('Estimated number of clusters: %d' % n_clusters_)
