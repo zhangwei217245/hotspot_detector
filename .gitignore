@@ -140,3 +140,5 @@ fabric.properties
 .idea/thriftCompiler.xml
 .idea/vcs.xml
 .idea/
+
+*.png
