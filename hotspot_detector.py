@@ -38,6 +38,8 @@ def main():
         except Exception as e:
             print(e)
 
+    if len(X) == 0:
+        exit(0)
     db = DBSCAN(eps=args.eps, min_samples=args.minpts).fit(X)
     core_samples_mask = np.zeros_like(db.labels_, dtype=bool)
     core_samples_mask[db.core_sample_indices_] = True
