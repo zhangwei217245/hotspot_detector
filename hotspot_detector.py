@@ -76,7 +76,7 @@ def main():
                     min = addr_
                 if max < addr_:
                     max = addr_
-        clst_name.append("C{:02}({}~{}, inst={})".format(cluster_idx,"{0:#0{1}X}".format(min,18),"{0:#0{1}X}".format(max,18)), num_inst)
+        clst_name.append("C{:02}({}~{}, inst={})".format(cluster_idx,"{0:#0{1}X}".format(min,18),"{0:#0{1}X}".format(max,18), num_inst))
         print("For cluster ", "{:02}".format(cluster_idx), ", the range = (", "{0:#0{1}X}".format(min,18), " ~ ", "{0:#0{1}X}".format(max,18), "), number of instances = ", num_inst)
 
 
