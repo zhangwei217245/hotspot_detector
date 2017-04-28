@@ -102,11 +102,11 @@ def main():
 
         xy = X[class_member_mask & core_samples_mask]
         plt.plot(xy[:, 0], xy[:, 1], 'o', markerfacecolor=col,
-                 markeredgecolor='lightgrey', mew=0.1, markersize=3)
+                 markeredgecolor='lightgrey', mew=0.1, markersize=10)
 
         xy = X[class_member_mask & ~core_samples_mask]
         plt.plot(xy[:, 0], xy[:, 1], 'o', markerfacecolor=col,
-                 markeredgecolor='r', mew=0.1, markersize=1)
+                 markeredgecolor='k', mew=0.1, markersize=3)
 
     plt.title('Estimated number of clusters: %d' % n_clusters_)
     plt.savefig(args.output)
