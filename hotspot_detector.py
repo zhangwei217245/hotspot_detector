@@ -101,11 +101,11 @@ def main():
         xy = X[class_member_mask & core_samples_mask]
         clst.append(plt.scatter(xy[:, 0], xy[:, 1], c=col, marker=markr))
 
-    plt.legend(clst, clst_name, loc='upper center', bbox_to_anchor=(0.5,-0.1))
+    lgd = plt.legend(clst, clst_name, loc='upper center', bbox_to_anchor=(0.5,-0.1))
     # plt.title('Estimated number of clusters: %d' % n_clusters_)
     plt.title(plot_title)
     plt.tight_layout()
-    plt.savefig(args.output)
+    plt.savefig(args.output, bbox_extra_artists=(lgd,), bbox_inches='tight')
 
     return
 
