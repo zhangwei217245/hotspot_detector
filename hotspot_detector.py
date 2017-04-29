@@ -40,6 +40,7 @@ def main():
 
     if len(X) == 0:
         exit(0)
+
     db = DBSCAN(eps=args.eps, min_samples=args.minpts).fit(X)
     core_samples_mask = np.zeros_like(db.labels_, dtype=bool)
     core_samples_mask[db.core_sample_indices_] = True
@@ -97,9 +98,9 @@ def main():
             markr = 'x'
             xy = X[class_member_mask & ~core_samples_mask]
             plt.scatter(xy[:, 0], xy[:, 1], c=col, marker=markr)
-
-        xy = X[class_member_mask & core_samples_mask]
-        clst.append(plt.scatter(xy[:, 0], xy[:, 1], c=col, marker=markr))
+        else:
+            xy = X[class_member_mask & core_samples_mask]
+            clst.append(plt.scatter(xy[:, 0], xy[:, 1], c=col, marker=markr))
 
     lgd = plt.legend(clst, clst_name, loc='upper center', bbox_to_anchor=(0.5,-0.1))
     # plt.title('Estimated number of clusters: %d' % n_clusters_)
