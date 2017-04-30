@@ -63,8 +63,8 @@ def main():
         max = 0x00000000
         num_inst = 0
         for addr_ in cluster_table[cluster_idx]:
-            num_inst = num_inst + 1
             if addr_ >= 0x00000000:
+                num_inst = num_inst + 1
                 if min > addr_:
                     min = addr_
                 if max < addr_:
