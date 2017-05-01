@@ -142,3 +142,4 @@ fabric.properties
 .idea/
 
 *.png
+/hotspot_detector_java/hotspot_detector_java.iml
