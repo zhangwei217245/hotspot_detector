@@ -13,7 +13,6 @@ import matplotlib.ticker as ticker
 def process_console_args():
     parser = argparse.ArgumentParser('hotspot_detector.py')
     parser.add_argument('-f', '--file', metavar='', default=None, help='The path of the file you want to process')
-    parser.add_argument('-o', '--output', metavar='', default=None, help='The path of the output file you want to generate')
     parser.add_argument('-e', '--eps', metavar='', default=2048, type=int, help='radius for dbscan')
     parser.add_argument('-m', '--minpts', metavar='', default=100, type=int, help='minimum number of points in the range')
     parser.add_argument('-H', '--headmemaddr', metavar='', default=0x00000000, type=int, help='memory head')
